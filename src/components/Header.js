@@ -1,8 +1,8 @@
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import Box from '@material-ui/core/Box'
+import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
 import DrawerIcon from './DrawerIcon'
-import { Link } from 'react-router-dom'
 
 const Header = ({handleDrawer}) => {
     const md = useMediaQuery('(max-width:800px)')
@@ -33,11 +33,11 @@ const Header = ({handleDrawer}) => {
             ) : (
                 <Box display="flex" justifyContent="space-around" p={2} width={350}>
                 {navs.map(({title, path}) => (
-                        <Typography variant="overline">
-                          <Link href={path} key={title}>
+                    <Typography variant="overline">
+                        <Link href={path} key={title}>
                             {title}
-                          </Link>
-                        </Typography>
+                        </Link>
+                    </Typography>
                     
                 ))}
                 </Box>
