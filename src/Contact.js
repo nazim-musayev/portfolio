@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { useEffect } from 'react'
+import emailjs from 'emailjs-com'
 
 const Contact = ({handleSnackBar}) => {
 
@@ -53,10 +54,19 @@ const Contact = ({handleSnackBar}) => {
         resolver: yupResolver(validationSchema)
         })
 
-    const onSubmit = data => {
+    const onSubmit = (data, event) => {
         console.log(data)
-        reset()
         handleSnackBar()
+
+        emailjs.sendForm('service_ouf66sf', 'template_49dcw7a', event.target, 'user_FTB6pFXsRIhTTCjtt2Cy5')
+          .then((result) => {
+              console.log(result.text)
+          }, (error) => {
+              console.log(error.text)
+          })
+
+        reset()
+
     }
 
     return (
@@ -80,8 +90,7 @@ const Contact = ({handleSnackBar}) => {
                         Message me
                     </Typography>
 
-                    <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}
-                     action="https://formsubmit.com/nazim.musa.555@gmail.com" method="POST" >
+                    <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
                       <Box height={280} display="flex" flexDirection="column" justifyContent="space-between" mb={2}>
 
                         <TextField label="Name" name="name" variant="outlined" fullWidth {...register('name')} 
@@ -91,7 +100,7 @@ const Contact = ({handleSnackBar}) => {
                          error={errors.email ? true : false} helperText={errors.email?.message} />
                 
                         <TextField label="Message" name="message" variant="outlined" fullWidth multiline rows={3}
-                         {...register('message')} error={errors.message ? true : false} 
+                         {...register('message')} error={errors.message ? true : false}
                          helperText={errors.message?.message} />
 
                       </Box>

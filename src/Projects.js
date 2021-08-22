@@ -17,7 +17,7 @@ const Projects = () => {
 
   const projects = [
       {
-        src : "ecommerce.png",
+        src : "commerce.png",
         title : "E-Commerce",
         path : "https://next-e-commerce.netlify.app/",
         text : `This is my second project, which you can live a real e-commerce experience when wandering around
