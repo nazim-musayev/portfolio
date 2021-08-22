@@ -33,8 +33,8 @@ const Header = ({handleDrawer}) => {
             ) : (
                 <Box display="flex" justifyContent="space-around" p={2} width={350}>
                 {navs.map(({title, path}) => (
-                    <Typography variant="overline">
-                        <Link href={path} key={title}>
+                    <Typography variant="overline" key={title}>
+                        <Link href={path}>
                             {title}
                         </Link>
                     </Typography>
