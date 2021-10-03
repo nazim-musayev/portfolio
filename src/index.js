@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Paper from '@material-ui/core/Paper'
+import Paper from '@material-ui/core/Paper';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from './theme';
@@ -19,4 +19,3 @@ ReactDOM.render(
   </>,
   document.getElementById('root')
 );
-
