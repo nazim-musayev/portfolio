@@ -10,6 +10,13 @@ const Projects = () => {
 
   const projects = [
     {
+      src: "linkedin.png",
+      title: "LinkedIn Clone",
+      path: "https://linkedin-pi.vercel.app/",
+      text: "In this project my goal was just building identical UI as much as possible. Also I added a couple of animations like you can experience in Linkedin. So here it is.",
+      tools: ["NEXT JS", "TYPESCRIPT", "MATERIAL UI", "FRAMER MOTION"]
+    },
+    {
       src: "watchlist.png",
       title: "Watchlist",
       path: "https://watchlist-ts.web.app/",
@@ -47,10 +54,7 @@ const Projects = () => {
   return (
     <Box mx={4}>
       {projects.map(project => (
-        <Grid container key={project.title} spacing={8}>
-          <Box clone display={{ xs : "none", md : "block"}}>
-            <Grid item md={1}></Grid>
-          </Box>
+        <Grid container key={project.title} spacing={8} justifyContent="center">
           <Grid item xs={12} md={10} >
             {skeleton ? <Skeleton variant="text" height={50} /> : (
               <Typography variant="h5">
@@ -79,9 +83,6 @@ const Projects = () => {
               </Box>
             )}
           </Grid>
-          <Box clone display={{ xs : "none", md : "block"}}>
-            <Grid item md={1}></Grid>
-          </Box>
         </Grid>
       ))}
     </Box>
