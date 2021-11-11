@@ -10,6 +10,18 @@ const Projects = () => {
 
   const projects = [
     {
+      src: "youtube.png",
+      title: "YouTube Clone (Dark Mode)",
+      path: "https://youtube-cln.netlify.app/",
+      text: "This is a YouTube Clone. It is hybrid (CSR + SSR), contains multiple pages. And each pages has different videos that you can choose one of them to watching. Also it is only project i did not made responsive.",
+      textTwo: ["HOME - Videos mixed-up by default, but there is a chip bar contains categories and you can fetch a list of videos different from mixed-up one by category with choosing one of them.",
+                "EXPLORE - Trending videos for Azerbaijan",
+                "SEARCH - Search results for any keyword or tag you entered in search bar",
+                "WATCH - In this page you can watch videos, read comments and etc.. Also you can see some videos related that video."
+               ],
+      tools: ["NEXT JS", "CONTEXT API", "TYPESCRIPT", "MATERIAL UI", "YOUTUBE DATA API"]
+    },
+    {
       src: "linkedin.png",
       title: "LinkedIn Clone",
       path: "https://linkedin-pi.vercel.app/",
@@ -21,8 +33,7 @@ const Projects = () => {
       title: "Watchlist",
       path: "https://watchlist-ts.web.app/",
       text: "This is the first project that i am using Firebase products and Typescript.",
-      tools: ["NEXT JS", "CONTEXT API", "TYPESCRIPT", "FIREBASE(AUTH, FIRESTORE,CLOUD FUNCTIONS)", 
-              "MATERIAL UI", "REACT HOOK FORM", "REACT FRAMER MOTION"]
+      tools: ["NEXT JS", "CONTEXT API", "TYPESCRIPT", "FIREBASE(AUTH, FIRESTORE,CLOUD FUNCTIONS)", "MATERIAL UI", "FRAMER MOTION", "REACT HOOK FORM"]
     },
     {
       src: "commerce.png",
@@ -46,7 +57,7 @@ const Projects = () => {
     
     const timer = setTimeout(() => {
       setSkeleton(false);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -73,6 +84,13 @@ const Projects = () => {
                 <Typography align="justify">
                   {project.text}
                 </Typography>
+                <Box my={1}>
+                  {project.textTwo && project.textTwo.map((item, index) => (
+                    <Typography variant="caption" display='block' key={index}>
+                      {item}
+                    </Typography>
+                  ))}
+                </Box>
                 {project.tools.map(tool => (
                   <Box key={tool}>
                     <Typography variant="caption">
